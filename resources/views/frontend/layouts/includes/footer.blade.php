@@ -29,19 +29,26 @@
                 <div class="col-md-4">
                     <div class="login-page">
                       <div class="form">
-                        <form class="register-form">
-                          <input type="text" placeholder="name"/>
-                          <input type="password" placeholder="password"/>
-                          <input type="text" placeholder="email address"/>
-                          <button>create</button>
+                        <form method="POST" action="{{ route('user-register') }}" class="register-form">
+                            @csrf
+                          <input type="text" placeholder="name" name="name" required/>
+
+                          <input type="text" placeholder="email address" name="email" required/>
+                          <input type="password" placeholder="password" name="password" required/>
+                          <input type="password" placeholder="password confirmed" name="password_confirmation" id="password-confirm" required/>
+                          <button type="submit">create</button>
                           <p class="message">Already registered? <a href="#">Sign In</a></p>
                         </form>
-                        <form class="login-form">
-                          <input type="text" placeholder="username"/>
-                          <input type="password" placeholder="password"/>
-                          <button>login</button>
+
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                          <input type="text" placeholder="email" name="email"/>
+                          <input type="password" placeholder="password" name="password"/>
+                          <button type="submit">login</button>
                           <p class="message">Not registered? <a href="#">Create an account</a></p>
                         </form>
+
+
                       </div>
                     </div>
                 </div>
