@@ -28,8 +28,8 @@ class Role extends Model
         return $this->belongsToMany(Permission::class);
     }
 
-    public function hasPermission ($permission): Boolean
+    public function hasPermission ($permission)
     {
-        return $this->role->persmissions()->where('slug',$permission)->first() ? ture : false;
+        return $this->role->persmissions()->where('slug',$permission)->first() ? true : false;
     }
 }
