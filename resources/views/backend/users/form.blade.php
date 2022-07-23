@@ -15,7 +15,7 @@
 @section('title','Users')
 
 @section('content')
-  
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -141,7 +141,7 @@
                                     </div>
 
                                 </div>
-                                   
+
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" id="status" name="status" @isset($user) {{ $user->status == true ? 'checked' : ''  }}@endisset>
                                     <label class="custom-control-label" for="status">Status</label>

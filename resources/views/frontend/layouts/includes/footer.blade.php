@@ -26,6 +26,7 @@
                       </div>
                     </div>
                 </div>
+                @guest
                 <div class="col-md-4">
                     <div class="login-page">
                       <div class="form">
@@ -40,7 +41,7 @@
                           <p class="message">Already registered? <a href="#">Sign In</a></p>
                         </form>
 
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('user.login') }}">
                             @csrf
                           <input type="text" placeholder="email" name="email"/>
                           <input type="password" placeholder="password" name="password"/>
@@ -52,6 +53,8 @@
                       </div>
                     </div>
                 </div>
+                @endguest
+
             </div>
             <div class="row">
                 <div class="col-md-12">

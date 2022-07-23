@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Regulation;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -11,7 +13,8 @@ class FrontendController extends Controller
         return view('frontend.pages.index');
     }
     public function contact(){
-        return view('frontend.pages.contact');
+        $contacts = Contact::where('status',1)->get();
+        return view('frontend.pages.contact',compact('contacts'));
     }
     public function billPay(){
         return view('frontend.pages.bill-pay');
@@ -20,6 +23,7 @@ class FrontendController extends Controller
         return view('frontend.pages.report');
     }
     public function rules(){
-        return view('frontend.pages.rules');
+        $regulations = Regulation::all();
+        return view('frontend.pages.rules',compact('regulations'));
     }
 }

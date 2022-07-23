@@ -102,14 +102,43 @@
 
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.contacts.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-hospital-user"></i>
 
                         <p>
-                            test
+                            Address
 
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.regulations.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-hospital-user"></i>
+
+                        <p>
+                            Regulation
+
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+
+                        <p>
+                            Log Out
+
+                        </p>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
+
+
                 </li>
 
 

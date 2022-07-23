@@ -19,6 +19,7 @@
     <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css')}}">
+    @stack('css')
 
 </head>
 {{-- <body class="hold-transition sidebar-mini"> --}}
@@ -240,7 +241,7 @@
     @yield('alert')
 
 
-
+@stack('js')
 </body>
 
 

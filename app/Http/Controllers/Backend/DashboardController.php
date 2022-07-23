@@ -26,10 +26,7 @@ class DashboardController extends Controller
 
     public function index (Request $request)
     {
-        if(auth()->user()->role_id == 2)
-        {
-            return view('backend.userdashboard');
-        }
+
         return view('backend.dashboard');
     }
 
