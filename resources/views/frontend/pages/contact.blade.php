@@ -4,54 +4,19 @@
 <div class="container">
     <div class="DBorder3">
         <div class="row">
+            @foreach ($contacts as $item)
+
+
+
             <div class="col-lg-6 col-sm-12">
                 <div class="DAddressSec">
-                    <p>গ্রীন হুইল</p>
-                    <p>গোল্ড প্যালেস (২য় তলা), ৩ নং নিউ বেইলী রোড, শান্তিনগর, ঢাকা-১০০০</p>
-                    <p>মোবাইল: ০১৬৫৪৯৮৬৪</p>
-                    <p>মেইল: greenwheel@gmail.com</p>
+                    <p>{{ $item->name }}</p>
+                    <p>{{ $item->address }}</p>
+                    <p>মোবাইল: {{ $item->contactno }}</p>
+                    <p>মেইল: {{ $item->email }}</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="DAddressSec">
-                    <p>গ্রীন হুইল</p>
-                    <p>গোল্ড প্যালেস (২য় তলা), ৩ নং নিউ বেইলী রোড, শান্তিনগর, ঢাকা-১০০০</p>
-                    <p>মোবাইল: ০১৬৫৪৯৮৬৪</p>
-                    <p>মেইল: greenwheel@gmail.com</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="DAddressSec">
-                    <p>গ্রীন হুইল</p>
-                    <p>গোল্ড প্যালেস (২য় তলা), ৩ নং নিউ বেইলী রোড, শান্তিনগর, ঢাকা-১০০০</p>
-                    <p>মোবাইল: ০১৬৫৪৯৮৬৪</p>
-                    <p>মেইল: greenwheel@gmail.com</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="DAddressSec">
-                    <p>গ্রীন হুইল</p>
-                    <p>গোল্ড প্যালেস (২য় তলা), ৩ নং নিউ বেইলী রোড, শান্তিনগর, ঢাকা-১০০০</p>
-                    <p>মোবাইল: ০১৬৫৪৯৮৬৪</p>
-                    <p>মেইল: greenwheel@gmail.com</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="DAddressSec">
-                    <p>গ্রীন হুইল</p>
-                    <p>গোল্ড প্যালেস (২য় তলা), ৩ নং নিউ বেইলী রোড, শান্তিনগর, ঢাকা-১০০০</p>
-                    <p>মোবাইল: ০১৬৫৪৯৮৬৪</p>
-                    <p>মেইল: greenwheel@gmail.com</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="DAddressSec">
-                    <p>গ্রীন হুইল</p>
-                    <p>গোল্ড প্যালেস (২য় তলা), ৩ নং নিউ বেইলী রোড, শান্তিনগর, ঢাকা-১০০০</p>
-                    <p>মোবাইল: ০১৬৫৪৯৮৬৪</p>
-                    <p>মেইল: greenwheel@gmail.com</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
