@@ -9,14 +9,15 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\BackupController;
 
 use App\Http\Controllers\Backend\ModuleController;
+use App\Http\Controllers\Backend\ContactController;
+
 use App\Http\Controllers\Backend\ProfileController;
 
+
 use App\Http\Controllers\Backend\SettingController;
-
-
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
-
+use App\Http\Controllers\Backend\RegulationController;
 
 Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 
@@ -54,4 +55,7 @@ Route::delete('backups', [BackupController::class, 'clean'])->name('backups.clea
 
 // ...................setup Mamagement........................................... //
 
-Route::resource('banks',BankController::class);
+Route::resource('regulations',RegulationController::class);
+Route::resource('contacts',ContactController::class);
+
+

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Image;
@@ -196,8 +197,22 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'status' => 0,
         ]);
-        return back();
+        return view('frontend.pages.userdashboard');
     }
+public function userLogin(Request $request)
+{
+    $data = [
+        'email' => $request->email,
+        'password' => $request->password
+    ];
 
+    if (auth()->attempt($data)) {
+
+        $user = Auth::user();
+        return view('frontend.pages.userdashboard',compact('user'));
+    } else {
+        return response()->json(['error' => 'Unauthorised'], 401);
+    }
+}
 
 }

@@ -5,15 +5,15 @@
     <div class="DBorder3">
         <div class="row">
 
-            @foreach ($regulations as $item)
+
 
 
             <div class="col-lg-6 col-sm-12">
                 <div class="DRulesSec">
-                   {!! $item->regulation !!}
+                  <p>Something went wrong !!!</p>
                 </div>
             </div>
-            @endforeach
+
 
         </div>
     </div>
