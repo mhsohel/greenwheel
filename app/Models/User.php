@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 // use Spatie\MediaLibrary\HasMedia;
 // use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable 
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -22,9 +22,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'mobileno',
         'password',
         'role_id',
         'avatar',
+        'address',
         'status'
     ];
 

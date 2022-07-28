@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\FrontendController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ProfileController;
 
 
 
@@ -12,6 +13,9 @@ use App\Http\Controllers\Backend\UserController;
 Auth::routes(['register' => false]);
 Route::post('/user-login',[UserController::class,'userLogin'])->name('user.login');
 Route::post('/user-register',[UserController::class,'fronUserStore'])->name('user-register');
+Route::get('/user-dashboard',[UserController::class,'userDashboard'])->name('userdashboard')->middleware('auth');
+Route::post('/change-user-password',[ProfileController::class,'updatefromfrontendPassword'])->name('change.userpassword')->middleware('auth');
+Route::post('/profile-update',[ProfileController::class,'fromfrontendupdate'])->name('user.profile.update')->middleware('auth');
 
 
 Route::get('/',[FrontendController::class,'index'])->name('index');

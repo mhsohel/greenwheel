@@ -184,35 +184,42 @@ class UserController extends Controller
     public function fronUserStore(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|email|unique:users',
-            'password' => 'required|confirmed|string|min:8',
+            // 'name' => 'required|string|max:255',
+            'mobileno' => 'required|numeric|unique:users',
+            'password' => 'required|confirmed|string|min:6',
 
         ]);
 
         $user = User::create([
             'role_id' => 2,
-            'name' => $request->name,
-            'email' => $request->email,
+            // 'name' => $request->name,
+            'mobileno' => $request->mobileno,
             'password' => Hash::make($request->password),
             'status' => 0,
         ]);
-        return view('frontend.pages.userdashboard');
+        return back();
     }
-public function userLogin(Request $request)
-{
-    $data = [
-        'email' => $request->email,
-        'password' => $request->password
-    ];
+    public function userLogin(Request $request)
+    {
+        $data = [
+            'mobileno' => $request->mobileno,
+            'password' => $request->password
+        ];
 
-    if (auth()->attempt($data)) {
+        if (auth()->attempt($data)) {
 
+            $user = Auth::user();
+            return view('frontend.pages.userdashboard',compact('user'));
+        } else {
+            return response()->json(['error' => 'Unauthorised'], 401);
+        }
+    }
+
+    public function userDashboard()
+    {
         $user = Auth::user();
         return view('frontend.pages.userdashboard',compact('user'));
-    } else {
-        return response()->json(['error' => 'Unauthorised'], 401);
     }
-}
+
 
 }

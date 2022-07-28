@@ -29,12 +29,22 @@
                 @guest
                 <div class="col-md-4">
                     <div class="login-page">
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                       <div class="form">
                         <form method="POST" action="{{ route('user-register') }}" class="register-form">
                             @csrf
-                          <input type="text" placeholder="name" name="name" required/>
+                          {{-- <input type="text" placeholder="name" name="name" required/> --}}
 
-                          <input type="text" placeholder="email address" name="email" required/>
+                          <input type="text" placeholder="Mobile No" name="mobileno" required maxlength="
+                          11" minlength="11"/>
                           <input type="password" placeholder="password" name="password" required/>
                           <input type="password" placeholder="password confirmed" name="password_confirmation" id="password-confirm" required/>
                           <button type="submit">create</button>
@@ -43,7 +53,7 @@
 
                         <form method="POST" action="{{ route('user.login') }}">
                             @csrf
-                          <input type="text" placeholder="email" name="email"/>
+                          <input type="text" placeholder="Mobile No" name="mobileno"/>
                           <input type="password" placeholder="password" name="password"/>
                           <button type="submit">login</button>
                           <p class="message">Not registered? <a href="#">Create an account</a></p>
@@ -54,6 +64,19 @@
                     </div>
                 </div>
                 @endguest
+
+                @auth
+                    @if($route = Route::current()->getName() !== 'user.login')
+
+                    <div class="login-page">
+                        <p class="message">Not registered? <a href="{{ route('userdashboard') }}">Go To Profile</a></p>
+
+
+                    </div>
+                    @endif
+                @endauth
+
+
 
             </div>
             <div class="row">
